@@ -16,8 +16,7 @@ function HeroSection() {
       <div className="relative flex min-h-screen items-center px-7 pb-24 pt-28 sm:px-14 sm:pb-28 md:px-16 md:pb-14 lg:px-24">
         <div className="max-w-4xl">
           <div className="mb-7 flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.35em] text-white/90 sm:mb-8 sm:gap-3 sm:text-base sm:tracking-[0.45em]">
-            <span className="bg-[#155fd0] px-2 py-0.5 tracking-[0.35em]">I Am</span>
-            <span>Anuj Kaundal</span>
+            <span>I Am Anuj Kaundal</span>
             <span className="ml-1 h-px w-9 bg-white/70 sm:w-14" />
           </div>
 

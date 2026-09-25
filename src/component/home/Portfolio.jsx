@@ -4,6 +4,9 @@ const projects = [
   { title: "Editorial Direction", category: "Brand experience", image: "/about.jpg" },
   { title: "Portrait Study", category: "Art direction", image: "/hero.jpg" },
   { title: "Digital Workspace", category: "Web development", image: "/about.jpg" },
+  { title: "Editorial Direction", category: "Brand experience", image: "/about.jpg" },
+  { title: "Portrait Study", category: "Art direction", image: "/hero.jpg" },
+  { title: "Digital Workspace", category: "Web development", image: "/about.jpg" },
 ];
 
 export default function PortfolioSection() {
