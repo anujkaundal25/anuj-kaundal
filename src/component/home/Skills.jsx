@@ -12,8 +12,8 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="scroll-mt-6 bg-[#202020] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24">
       <div className="mx-auto max-w-6xl">
-        <p className="text-center text-sm uppercase tracking-[0.35em] text-[#8eb9ff]">What I Know</p>
-        <h2 className="mt-3 text-center text-4xl font-bold sm:text-5xl">My Skills</h2>
+        <p className="text-center text-[10px] uppercase tracking-[0.35em] text-[#8eb9ff]">What I Know</p>
+        <h2 className="mt-3 text-center text-4xl font-bold sm:text-3xl">My Skills</h2>
         <div className="mt-16 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <FaReact className="text-5xl text-[#8eb9ff]" />
