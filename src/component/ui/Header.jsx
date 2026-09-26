@@ -22,7 +22,9 @@ function Header() {
       (entries) => {
         const visibleSection = entries.find((entry) => entry.isIntersecting);
         if (visibleSection) {
-          const item = menuItems.find(({ id }) => id === visibleSection.target.id);
+          const item = menuItems.find(
+            ({ id }) => id === visibleSection.target.id,
+          );
           if (item) setActiveTab(item.label);
         }
       },
@@ -51,13 +53,33 @@ function Header() {
         >
           {isOpen ? (
             // Close (X) Icon
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-7 h-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           ) : (
             // Hamburger Icon
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              className="w-7 h-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           )}
         </button>
@@ -74,13 +96,16 @@ function Header() {
       {/* Sidebar Navigation */}
       <div
         className={`bg-[#191919] text-white h-screen fixed top-0 left-0 z-40 transition-transform duration-300 ease-in-out
-          w-72 md:w-[23%] p-10 pt-28 md:pt-40
+          w-72 md:w-[23%] p-10 pt-20 md:pt-20
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
+        <img src="/profile.png" alt="" height={100} width={100} />
         <div className="space-y-10">
           {/* Logo hidden on mobile header since it's already in the top bar */}
-          <h1 className="hidden md:block text-5xl font-black italic">AK</h1>
-          
+          <h1 className="hidden md:block text-2xl font-black italic">
+            𝔸𝕟𝕦𝕛 𝕂𝕒𝕦𝕟𝕕𝕒𝕝
+          </h1>
+
           <ul className="space-y-5 text-xl cursor-pointer">
             {menuItems.map(({ label, id }) => {
               const isActive = activeTab === label;
@@ -89,7 +114,9 @@ function Header() {
                   key={id}
                   onClick={() => scrollToSection(id, label)}
                   className={`flex items-center transition-colors duration-200 ${
-                    isActive ? "text-white font-semibold" : "text-gray-400 hover:text-white"
+                    isActive
+                      ? "text-white font-semibold"
+                      : "text-gray-400 hover:text-white"
                   }`}
                 >
                   <span>{label}</span>

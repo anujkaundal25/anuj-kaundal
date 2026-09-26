@@ -31,3 +31,18 @@ html {
 button,li{
   cursor:pointer
 }
+
+@utility section-label {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  padding: 0.25rem 1.25rem;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+}

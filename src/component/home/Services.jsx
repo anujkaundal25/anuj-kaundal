@@ -25,7 +25,7 @@ export default function Services() {
       className="scroll-mt-6 bg-[#292929] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="text-center text-sm uppercase tracking-[0.35em] text-[#8eb9ff]">
+        <p className="section-label mx-auto mb-3">
           What I Do
         </p>
         <h2 className="mt-3 text-center text-4xl font-bold sm:text-5xl">

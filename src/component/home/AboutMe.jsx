@@ -16,11 +16,9 @@ function AboutMe() {
         </div>
 
         <div>
-          <p className="mb-3 text-sm uppercase tracking-[0.35em] text-[#8eb9ff]">
-            About Me
-          </p>
+          <span className="section-label mb-3">About Me</span>
 
-          <h2 className="max-w-4xl text-3xl font-bold leading-tight">
+          <h2 className="max-w-4xl text-3xl font-bold leading-tight mt-5">
             Passionate web developer building modern digital experiences.
           </h2>
 
