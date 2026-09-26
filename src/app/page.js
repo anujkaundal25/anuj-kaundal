@@ -5,6 +5,7 @@ import Skills from "@/component/home/Skills";
 import Services from "@/component/home/Services";
 import PortfolioSection from "@/component/home/Portfolio";
 import Contact from "@/component/home/Contact";
+import Footer from "@/component/ui/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Services/>
       <PortfolioSection/>
       <Contact/>
+      <Footer/>
     </div>
   );
 }
