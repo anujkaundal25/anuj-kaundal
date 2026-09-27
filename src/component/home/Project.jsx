@@ -6,7 +6,7 @@ const projects = [
   { title: "Med Integrity Group", category: "Medical Services", image: "/portfolio-img/web2.png", url: "https://medintegrity-group.com/" },
   { title: "MCH Innovations", category: "Tech Services", image: "/portfolio-img/web3.png", url: "https://mchinnovations.com/" },
   { title: "Andre Loonstra", category: "Storage & Transport", image: "/portfolio-img/web4.png", url: "https://andreloonstrabeheer.com/" },
-  { title: "Digital Workspace", category: "Trekking Website", image: "/portfolio-img/web6.png", url: "https://trekking-orcin.vercel.app/" },
+  { title: "Trekking Website", category: "Trekking Website", image: "/portfolio-img/web6.png", url: "https://trekking-orcin.vercel.app/" },
 ];
 
 export default function PortfolioSection() {
