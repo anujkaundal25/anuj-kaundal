@@ -9,9 +9,9 @@ function AboutMe() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[minmax(260px,0.8fr)_1.2fr]">
         <div className="overflow-hidden bg-[#202020]">
           <img
-            src="/about.jpg"
+            src="/about.webp"
             alt="Anuj Kaundal"
-            className="h-full min-h-[360px] w-full object-cover grayscale"
+            className="h-full min-h-[360px] w-full object-cover grayscale-50 rounded-lg"
           />
         </div>
 

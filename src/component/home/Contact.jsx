@@ -1,9 +1,50 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formMessage, setFormMessage] = useState("");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setFormMessage("");
+
+    const form = event.currentTarget;
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "64b32004-7fbf-4c4f-b1cc-084d80d61b97",
+          name: `${formData.get("name")} ${formData.get("lastname")}`.trim(),
+          email: formData.get("email"),
+          subject: formData.get("subject"),
+          message: formData.get("message"),
+        }),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to send your message.");
+      }
+
+      form.reset();
+      setFormMessage("Thanks for reaching out. Your message has been sent.");
+    } catch (error) {
+      setFormMessage(error.message || "Unable to send your message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   const contactData = [
     // {
     //   icon: <FaMapMarkerAlt className="h-6 w-6 text-[#292929]" />,
@@ -13,12 +54,12 @@ export default function ContactSection() {
     {
       icon: <FaEnvelope className="h-6 w-6 text-[#292929]" />,
       title: "Email Us",
-      lines: ["kaundalanuj45@gmail.com", "kaundalanuj45@gmail.com"],
+      lines: ["anujkaundaldev@gmail.com", "kaundalanuj45@gmail.com"],
     },
     {
       icon: <FaPhoneAlt className="h-6 w-6 text-[#292929]" />,
       title: "Call Now",
-      lines: ["1234567890", "123456789"],
+      lines: ["8091770596", "1234567895"],
     },
   ];
 
@@ -109,17 +150,25 @@ export default function ContactSection() {
 
         <div className="relative z-10 mx-auto mt-14 flex max-w-3xl items-center justify-center px-0 sm:mt-16">
           <div className="w-full bg-[#212121] p-8 shadow-2xl sm:p-14">
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Row 1: Name & Lastname */}
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <input
                   type="text"
+                  name="name"
+                  aria-label="Name"
                   placeholder="Name"
+                  autoComplete="given-name"
+                  required
                   className="w-full rounded-full bg-[#1b1b1b] px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-400"
                 />
                 <input
                   type="text"
+                  name="lastname"
+                  aria-label="Lastname"
                   placeholder="Lastname"
+                  autoComplete="family-name"
+                  required
                   className="w-full rounded-full bg-[#1b1b1b] px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-400"
                 />
               </div>
@@ -128,12 +177,19 @@ export default function ContactSection() {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <input
                   type="email"
+                  name="email"
+                  aria-label="Email"
                   placeholder="Email"
+                  autoComplete="email"
+                  required
                   className="w-full rounded-full bg-[#1b1b1b] px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-400"
                 />
                 <input
                   type="text"
+                  name="subject"
+                  aria-label="Subject"
                   placeholder="Subject"
+                  required
                   className="w-full rounded-full bg-[#1b1b1b] px-6 py-4 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-400"
                 />
               </div>
@@ -142,18 +198,28 @@ export default function ContactSection() {
               <div>
                 <textarea
                   rows={6}
+                  name="message"
+                  aria-label="Message"
                   placeholder="Message"
+                  required
                   className="w-full rounded-3xl bg-[#1b1b1b] px-6 py-5 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-400 resize-none"
                 ></textarea>
               </div>
+
+              {formMessage && (
+                <p role="status" className="text-center text-sm text-gray-200">
+                  {formMessage}
+                </p>
+              )}
 
               {/* Submit Button */}
               <div className="flex justify-center pt-2">
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="rounded-full border border-gray-600 px-12 py-4 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-white hover:text-black"
                 >
-                  SEND MESSAGE
+                  {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
                 </button>
               </div>
             </form>

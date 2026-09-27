@@ -1,12 +1,12 @@
 import React from "react";
 
 const projects = [
-  { title: "Editorial Direction", category: "Brand experience", image: "/about.jpg" },
-  { title: "Portrait Study", category: "Art direction", image: "/hero.jpg" },
-  { title: "Digital Workspace", category: "Web development", image: "/about.jpg" },
-  { title: "Editorial Direction", category: "Brand experience", image: "/about.jpg" },
-  { title: "Portrait Study", category: "Art direction", image: "/hero.jpg" },
-  { title: "Digital Workspace", category: "Web development", image: "/about.jpg" },
+  { title: "Eazy minds", category: "Health Services", image: "/portfolio-img/web1.png", url: "https://eazymindsbh.com/" },
+  { title: "Dadi-Industries", category: "Achaar & candy Store", image: "/portfolio-img/web5.png", url: "https://dadi-industries.com/" },
+  { title: "Med Integrity Group", category: "Medical Services", image: "/portfolio-img/web2.png", url: "https://medintegrity-group.com/" },
+  { title: "MCH Innovations", category: "Tech Services", image: "/portfolio-img/web3.png", url: "https://mchinnovations.com/" },
+  { title: "Andre Loonstra", category: "Storage & Transport", image: "/portfolio-img/web4.png", url: "https://andreloonstrabeheer.com/" },
+  { title: "Digital Workspace", category: "Trekking Website", image: "/portfolio-img/web6.png", url: "https://trekking-orcin.vercel.app/" },
 ];
 
 export default function PortfolioSection() {
@@ -17,18 +17,24 @@ export default function PortfolioSection() {
         <h2 className="mt-3 text-center text-4xl font-bold sm:text-5xl">Latest Projects</h2>
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <article key={index} className="group relative aspect-[4/3] overflow-hidden bg-[#292929]">
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0" 
+            <a
+              key={index}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-white border border-white/20 rounded-lg block cursor-pointer overflow-hidden"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-52 w-full aspect-[1/1] object-contain p-2 transition duration-500"
               />
-              {/* This will now hide the text by default and show it on hover for ALL screen sizes */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 pt-16 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                <p className="text-xs uppercase tracking-[0.25em] text-[#8eb9ff]">{project.category}</p>
+              {/* Text overlay on hover */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-6 pt-12 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] bg-white w-fit px-2 py-1 rounded-full text-black">{project.category}</p>
                 <h3 className="mt-2 text-xl font-semibold">{project.title}</h3>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>

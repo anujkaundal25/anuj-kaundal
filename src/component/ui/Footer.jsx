@@ -4,7 +4,6 @@ import {
   FaGithub,
   FaInstagram,
   FaLinkedinIn,
-  FaTwitter,
 } from "react-icons/fa";
 
 function Footer() {
@@ -13,21 +12,14 @@ function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
         <div className="mt-2 flex items-center gap-3">
           <a
-            href="#twitter"
-            aria-label="Twitter"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-[#292929] text-white/70 transition-colors hover:bg-white hover:text-[#202020]"
-          >
-            <FaTwitter />
-          </a>
-          <a
-            href="#linkedin"
+            href="https://www.linkedin.com/in/anuj-kaundal/"
             aria-label="LinkedIn"
             className="flex h-9 w-9 items-center justify-center rounded-full bg-[#292929] text-white/70 transition-colors hover:bg-white hover:text-[#202020]"
           >
             <FaLinkedinIn />
           </a>
           <a
-            href="#instagram"
+            href="https://www.instagram.com/kaundal135_?stkn=cW4wOXpzYzZtNWk1"
             aria-label="Instagram"
             className="flex h-9 w-9 items-center justify-center rounded-full bg-[#292929] text-white/70 transition-colors hover:bg-white hover:text-[#202020]"
           >
