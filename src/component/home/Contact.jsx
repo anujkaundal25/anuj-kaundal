@@ -144,7 +144,7 @@ export default function ContactSection() {
             height="100%"
             className="h-full w-full border-0 filter grayscale invert contrast-125"
             loading="lazy"
-            src="https://maps.google.com/maps?q=7+Green+Lake+Street,+Crawfordsville,+IN+47933&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Dehradun,+Uttarakhand,+India&t=&z=12&ie=UTF8&iwloc=&output=embed"
           ></iframe>
         </div>
 
