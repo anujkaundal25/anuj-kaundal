@@ -67,7 +67,7 @@ export default function ContactSection() {
     <>
       <section
         id="contact"
-        className="scroll-mt-6 bg-[#1e1e1e] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24"
+        className="scroll-mt-6 bg-[#1e1e1e] px-8 py-24 text-center text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24"
       >
         <p className="section-label mx-auto mb-12">Contact</p>
 

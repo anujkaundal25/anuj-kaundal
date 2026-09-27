@@ -13,10 +13,11 @@ function HeroSection() {
       className="relative min-h-screen scroll-mt-6 overflow-hidden bg-[#111] text-white md:ml-[23%]"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 bg-[url('/new.jpeg')] bg-cover bg-[70%_center] sm:bg-[65%_center] md:bg-center lg:bg-[62%_center]" />
+      <div className="absolute inset-0 bg-[url('/new.jpeg')] bg-contain bg-center bg-no-repeat md:bg-cover" />
 
       {/* Dark Overlay - Adjusted gradient to keep left side clearly dark and readable */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/30" />
+      <div className="lg:block hidden absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/30" />
+      <div className="lg:hidden block absolute inset-0 bg-black/60" />
 
       {/* Decorative Glow */}
       <div className="absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-[#155fd0]/20 blur-[120px]" />
@@ -41,7 +42,7 @@ function HeroSection() {
             </div>
             <div className="flex items-center gap-3">
               <span className="hidden h-px w-10 bg-white/50 sm:block" />
-              <span className="text-xs uppercase tracking-[0.3em] text-white/70 sm:text-sm">
+              <span className="text-xs uppercase tracking-[0.3em] text-white lg:text-white/70 sm:text-sm">
                 I Am Anuj Kaundal
               </span>
             </div>

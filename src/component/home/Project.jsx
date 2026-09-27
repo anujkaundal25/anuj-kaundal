@@ -30,9 +30,9 @@ export default function PortfolioSection() {
                 className="h-52 w-full aspect-[1/1] object-contain p-2 transition duration-500"
               />
               {/* Text overlay on hover */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-6 pt-12 transition-all duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] bg-white w-fit px-2 py-1 rounded-full text-black">{project.category}</p>
-                <h3 className="mt-2 text-xl font-semibold">{project.title}</h3>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-6 pt-12 transition-all duration-300 translate-y-2 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="mx-auto w-fit rounded-full bg-white px-2 py-1 text-center text-xs font-semibold uppercase tracking-[0.25em] text-black">{project.category}</p>
+                <h3 className="mt-2 text-center text-xl font-semibold">{project.title}</h3>
               </div>
             </a>
           ))}
