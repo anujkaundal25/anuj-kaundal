@@ -99,7 +99,7 @@ function Header() {
           w-72 md:w-[23%] p-10 pt-20 md:pt-20
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
-        <img src="/profile.jpg" alt="" className="w-24 h-28 rounded-full object-cover"/>
+        <img src="/profile.jpg" alt="" className="w-28 h-28 rounded-full object-cover"/>
         <div className="space-y-10">
           {/* Logo hidden on mobile header since it's already in the top bar */}
           <h1 className="hidden md:block text-2xl font-black italic">
