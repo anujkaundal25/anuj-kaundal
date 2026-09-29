@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { FaLaptopCode, FaPalette, FaPenNib } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
   {
@@ -80,83 +81,105 @@ export default function Services() {
     <>
       <section
         id="services"
-        className="scroll-mt-6 bg-[#292929] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24"
+        className="scroll-mt-6 bg-[#292929] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24 overflow-hidden"
       >
         <div className="mx-auto max-w-6xl">
-        <p className="section-label mx-auto mb-3">
-          What I Do
-        </p>
+          {/* Animated Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="section-label mx-auto mb-3 text-center">What I Do</p>
+            <h2 className="mt-3 text-center text-4xl font-bold sm:text-5xl">
+              My Services
+            </h2>
+          </motion.div>
 
-        <h2 className="mt-3 text-center text-4xl font-bold sm:text-5xl">
-          My Services
-        </h2>
-
+          {/* Cards Grid with Stagger Animation */}
           <div className="mt-16 grid gap-5 lg:grid-cols-3">
-            {services.map(({ icon: Icon, price, title, text, points }) => (
-            <article
-              key={title}
-              className="bg-[#222222] p-8 transition-transform duration-300 hover:-translate-y-1 flex flex-col items-center justify-center rounded-lg shadow-md hover:shadow-lg"
-            >
-              <Icon className="text-6xl text-[#8eb9ff]" />
-
-              <p className="mt-6 text-2xl font-bold text-[#8eb9ff]">
-                {price}
-              </p>
-
-              <h3 className="mt-3 text-2xl font-semibold">
-                {title}
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/60">
-                {text}
-              </p>
-
-              <button
-                type="button"
-                onClick={() => setSelectedService({ title, points })}
-                className="mt-7 inline-block text-sm uppercase tracking-wider text-white/80 transition-colors hover:text-[#8eb9ff]"
+            {services.map(({ icon: Icon, price, title, text, points }, index) => (
+              <motion.article
+                key={title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                whileHover={{ y: -6 }}
+                className="bg-[#222222] p-8 flex flex-col items-center justify-center rounded-lg shadow-md hover:shadow-xl transition-shadow"
               >
-                Read More
-              </button>
-            </article>
+                <Icon className="text-6xl text-[#8eb9ff]" />
+
+                <p className="mt-6 text-2xl font-bold text-[#8eb9ff]">
+                  {price}
+                </p>
+
+                <h3 className="mt-3 text-2xl font-semibold">{title}</h3>
+
+                <p className="mt-4 leading-7 text-white/60 text-center">
+                  {text}
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedService({ title, points })}
+                  className="mt-7 inline-block text-sm uppercase tracking-wider text-white/80 transition-colors hover:text-[#8eb9ff]"
+                >
+                  Read More
+                </button>
+              </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      {selectedService && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 py-8"
-          role="presentation"
-          onClick={() => setSelectedService(null)}
-        >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="service-modal-title"
-            className="relative max-h-full w-full max-w-lg overflow-y-auto rounded-lg bg-[#222222] p-7 text-white shadow-2xl sm:p-9"
-            onClick={(event) => event.stopPropagation()}
+      {/* Animated Modal Popup */}
+      <AnimatePresence>
+        {selectedService && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 py-8"
+            role="presentation"
+            onClick={() => setSelectedService(null)}
           >
-            <button
-              type="button"
-              aria-label="Close service details"
-              onClick={() => setSelectedService(null)}
-              className="absolute right-4 top-3 text-2xl leading-none text-white/60 transition-colors hover:text-white"
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: "spring", duration: 0.4, bounce: 0.2 }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="service-modal-title"
+              className="relative max-h-full w-full max-w-lg overflow-y-auto rounded-lg bg-[#222222] p-7 text-white shadow-2xl sm:p-9"
+              onClick={(event) => event.stopPropagation()}
             >
-              &times;
-            </button>
+              <button
+                type="button"
+                aria-label="Close service details"
+                onClick={() => setSelectedService(null)}
+                className="absolute right-4 top-3 text-2xl leading-none text-white/60 transition-colors hover:text-white"
+              >
+                &times;
+              </button>
 
-            <h2 id="service-modal-title" className="pr-8 text-2xl font-bold text-[#8eb9ff]">
-              {selectedService.title}
-            </h2>
-            <ul className="mt-6 list-disc space-y-3 pl-5 text-left leading-6 text-white/75">
-              {selectedService.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+              <h2
+                id="service-modal-title"
+                className="pr-8 text-2xl font-bold text-[#8eb9ff]"
+              >
+                {selectedService.title}
+              </h2>
+              <ul className="mt-6 list-disc space-y-3 pl-5 text-left leading-6 text-white/75">
+                {selectedService.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

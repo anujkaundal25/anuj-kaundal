@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 const projects = [
   { title: "Eazy minds", category: "Health Services", image: "/portfolio-img/web1.png", url: "https://eazymindsbh.com/" },
@@ -11,18 +14,36 @@ const projects = [
 
 export default function PortfolioSection() {
   return (
-    <section id="portfolio" className="scroll-mt-6 bg-[#202020] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24">
+    <section 
+      id="portfolio" 
+      className="scroll-mt-6 bg-[#202020] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24 overflow-hidden"
+    >
       <div className="mx-auto max-w-6xl">
-        <p className="section-label mx-auto">Selected Work</p>
-        <h2 className="mt-3 text-center text-4xl font-bold sm:text-5xl">Latest Projects</h2>
+        {/* Animated Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="section-label mx-auto text-center">Selected Work</p>
+          <h2 className="mt-3 text-center text-4xl font-bold sm:text-5xl">Latest Projects</h2>
+        </motion.div>
+
+        {/* Projects Grid with Stagger Animation */}
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <a
+            <motion.a
               key={index}
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-white border border-white/20 rounded-lg block cursor-pointer overflow-hidden"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -6 }}
+              className="group relative bg-white border border-white/20 rounded-lg block cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition-shadow"
             >
               <img
                 src={project.image}
@@ -31,10 +52,12 @@ export default function PortfolioSection() {
               />
               {/* Text overlay on hover */}
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-6 pt-12 transition-all duration-300 translate-y-2 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                <p className="mx-auto w-fit rounded-full bg-white px-2 py-1 text-center text-xs font-semibold uppercase tracking-[0.25em] text-black">{project.category}</p>
+                <p className="mx-auto w-fit rounded-full bg-white px-2 py-1 text-center text-xs font-semibold uppercase tracking-[0.25em] text-black">
+                  {project.category}
+                </p>
                 <h3 className="mt-2 text-center text-xl font-semibold">{project.title}</h3>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>
