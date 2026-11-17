@@ -33,7 +33,7 @@ function HeroSection() {
   return (
     <main
       id="home"
-      className="relative min-h-screen scroll-mt-6 overflow-hidden bg-[#111] text-white md:ml-[23%]"
+      className="relative min-h-screen scroll-mt-6 overflow-hidden bg-[#111] text-white"
     >
       {/* Background Image with Smooth Zoom-in */}
       <motion.div
@@ -157,14 +157,14 @@ function HeroSection() {
             </div>
 
             <div>
-              <p className="text-xl font-semibold sm:text-2xl">React</p>
+              <p className="text-xl font-semibold sm:text-2xl">Next / React</p>
               <p className="mt-1 text-[9px] uppercase tracking-[0.25em] text-white/40">
                 Frontend
               </p>
             </div>
 
             <div>
-              <p className="text-xl font-semibold sm:text-2xl">Node</p>
+              <p className="text-xl font-semibold sm:text-2xl">Express / Node</p>
               <p className="mt-1 text-[9px] uppercase tracking-[0.25em] text-white/40">
                 Backend
               </p>

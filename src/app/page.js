@@ -1,4 +1,4 @@
-import { Header } from "@/component/ui/Header";
+import SiteLayout from "@/component/ui/SiteLayout";
 import HeroSection from "@/component/home/HeroSection";
 import AboutMe from "@/component/home/AboutMe";
 import Skills from "@/component/home/Skills";
@@ -9,8 +9,7 @@ import Footer from "@/component/ui/Footer";
 
 export default function Home() {
   return (
-    <div className="bg-[#292929]">
-      <Header />
+    <SiteLayout>
       <HeroSection />
       <AboutMe />
       <Skills/>
@@ -18,6 +17,6 @@ export default function Home() {
       <PortfolioSection/>
       <Contact/>
       <Footer/>
-    </div>
+    </SiteLayout>
   );
 }

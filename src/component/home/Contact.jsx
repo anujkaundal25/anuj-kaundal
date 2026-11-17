@@ -64,7 +64,7 @@ export default function ContactSection() {
       {/* SECTION 1: Contact Info Cards */}
       <section
         id="contact"
-        className="scroll-mt-6 bg-[#1e1e1e] px-8 py-24 text-center text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24 overflow-hidden"
+        className="scroll-mt-6 bg-[#1e1e1e] px-8 py-24 text-center text-white sm:px-14 md:px-16 lg:px-24 overflow-hidden"
       >
         <motion.p 
           initial={{ opacity: 0, y: -20 }}
@@ -149,7 +149,7 @@ export default function ContactSection() {
       </section>
 
       {/* SECTION 2: Form & Map Section */}
-      <section className="relative mt-12 min-h-[760px] bg-[#292929] px-4 pb-16 pt-2 text-white sm:px-8 md:ml-[23%] overflow-hidden">
+      <section className="relative mt-12 min-h-[760px] bg-[#292929] px-4 pb-16 pt-2 text-white sm:px-8 overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

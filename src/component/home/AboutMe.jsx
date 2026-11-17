@@ -7,7 +7,7 @@ function AboutMe() {
   return (
     <section
       id="about"
-      className="scroll-mt-6 bg-[#292929] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24 overflow-hidden"
+      className="scroll-mt-6 bg-[#292929] px-8 py-24 text-white sm:px-14 md:px-16 lg:px-24 overflow-hidden"
     >
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[minmax(260px,0.8fr)_1.2fr]">
         

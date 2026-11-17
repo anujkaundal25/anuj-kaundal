@@ -97,7 +97,7 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="scroll-mt-6 bg-[#202020] px-8 py-24 text-white sm:px-14 md:ml-[23%] md:px-16 lg:px-24 overflow-hidden"
+      className="scroll-mt-6 bg-[#202020] px-8 py-24 text-white sm:px-14 md:px-16 lg:px-24 overflow-hidden"
     >
       <div className="mx-auto max-w-6xl">
         {/* Section Header */}
