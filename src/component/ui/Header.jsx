@@ -9,7 +9,7 @@ function Header() {
     { label: "Home", id: "home" },
     { label: "About Me", id: "about" },
     { label: "Skills", id: "skills" },
-    { label: "Services", id: "services" },
+    // { label: "Services", id: "services" },
     { label: "Projects", id: "portfolio" },
     { label: "Contact", id: "contact" },
   ];
